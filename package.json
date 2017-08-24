@@ -1,0 +1,22 @@
+{
+  "name": "api-interaction",
+  "version": "1.0.0",
+  "description": "",
+  "main": "api.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/dazyang/api-interaction.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/dazyang/api-interaction/issues"
+  },
+  "homepage": "https://github.com/dazyang/api-interaction#readme",
+  "dependencies": {
+    "xmlhttprequest": "^1.8.0"
+  }
+}
