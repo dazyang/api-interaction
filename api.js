@@ -1,32 +1,25 @@
-// var XMLHttpRequest = require("xmlhttprequest").XMLHttpRequest;
-var quoteContainer = document.getElementById("receiveQuote")
-var btn = document.getElementById("btn");
+//var XMLHttpRequest = require("xmlhttprequest").XMLHttpRequest;
+var sourceContainer = document.getElementById("receiveProverb")
+var transContainer = document.getElementById("transProverb")
+var Btn = document.getElementById("pressBtn");
 
-btn.addEventListener("click", function(){
-    var requestProverb = new XMLHttpRequest();
-    requestProverb.open("GET", "https://eda-te-reo.herokuapp.com/api/proverbs")
-    requestProverb.onload= function(){
+Btn.addEventListener("click", function(){
+    var getProverb = new XMLHttpRequest();
+    getProverb.open("GET", "https://eda-te-reo.herokuapp.com/api/proverbs")
+    getProverb.onload = function(){
         //onload();What should happen when the data is loaded.
-            var responseGet = JSON.parse(requestProverb.responseText);
-            render(respondGet);
-    }
-    requestProverb.send();
+     var newProverb = JSON.parse(getProverb.responseText);
+     render(newProverb);
+     console.log(newProverb);
+    };
+    getProverb.send();
 });
 
 //The function below is going to add HTML to the page.
 function render(data){
-    quoteContainer.insertAdjacentHTML('beforeend', "Hello")
-
+     var htmlString = "";
+     for (i = 0; i < data.length; i++){
+       htmlString += "<p>" + data[i].source + ".</p>";
+    }
+     sourceContainer.insertAdjacentHTML('beforeend', htmlString);
 }
-
-
-//console.log(xhr.status);
-//console.log(xhr.statusText);
-
-// var newProverb = requestProverb.responseText;
-// var proverbSource =
-// var proverbTranslation = newProverb.translation;
-
-// console.log(newProverb);
-// console.log(proverbSource);
-// console.log(proverbTranslation);
